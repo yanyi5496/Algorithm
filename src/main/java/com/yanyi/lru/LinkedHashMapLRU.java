@@ -4,10 +4,10 @@ import java.util.LinkedHashMap;
 
 /**
  * @author chenqiang
- * @description  使用LinkedhashMap完成LRU(Least Recently Used)算法
+ * @description  使用LinkedhashMap完成LRU(Least Recently Used)算法 内存淘汰算法
  */
 public class LinkedHashMapLRU {
-    int capacity;
+    public int capacity;
     LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
 
     public LinkedHashMapLRU(int capacity) {
