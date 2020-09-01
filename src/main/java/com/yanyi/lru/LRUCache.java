@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 /**
  * @author chenqiang
- * @description  LRU的自实现
- * 在cache中删除掉一个节点时，要同时删除map中的值
+ * @description  LRU的自实现 在cache中删除掉一个节点时，要同时删除map中的值
+ * @url https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/lru-suan-fa
  */
 public class LRUCache {
     //key -> Node(key,val)

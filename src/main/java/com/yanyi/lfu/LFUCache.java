@@ -1,26 +1,26 @@
 package com.yanyi.lfu;
 
-import java.security.Key;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 
 /**
  * @author chenqiang
- * @description LFU
+ * @description LFU (Least Frequently Used) 最少使用内存回收算法
+ * @url https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ
  */
 public class LFUCache {
     //key到val之间的映射
-    HashMap<Integer,Integer> keyToVal;
+    HashMap<Integer, Integer> keyToVal;
     //key到freq(频次)之间的映射
-    HashMap<Integer,Integer> keyToFreq;
+    HashMap<Integer, Integer> keyToFreq;
     //freq到keys之间的映射，同频次的key的次序
     HashMap<Integer, LinkedHashSet<Integer>> freqToKeys;
     //最小频次
-    int minFreq;
+    private int minFreq;
     //cache的容量
-    int capacity;
+    private int capacity;
 
-    public LFUCache(int capacity){
+    public LFUCache(int capacity) {
         this.capacity = capacity;
         keyToVal = new HashMap<>();
         keyToFreq = new HashMap<>();
@@ -42,7 +42,7 @@ public class LFUCache {
         }
         // key存在，修改对应的val值即可
         if (keyToVal.containsKey(key)) {
-            keyToVal.put(key,val);
+            keyToVal.put(key, val);
             increaseFreq(key);
             return;
         }
@@ -51,9 +51,9 @@ public class LFUCache {
             removeMinfreqkey();
         }
 
-        keyToVal.put(key,val);
-        keyToFreq.put(key,1);
-        freqToKeys.putIfAbsent(1,new LinkedHashSet<>());
+        keyToVal.put(key, val);
+        keyToFreq.put(key, 1);
+        freqToKeys.putIfAbsent(1, new LinkedHashSet<>());
         freqToKeys.get(1).add(key);
         this.minFreq = 1;
     }
@@ -62,7 +62,7 @@ public class LFUCache {
     /**
      * 移除最少使用且最旧的
      */
-    private void removeMinfreqkey(){
+    private void removeMinfreqkey() {
         LinkedHashSet<Integer> keyList = freqToKeys.get(this.minFreq);
         Integer deletedKey = keyList.iterator().next();
         keyList.remove(deletedKey);
@@ -75,18 +75,19 @@ public class LFUCache {
 
     /**
      * 增加该key的访问频次
+     *
      * @param key
      */
     private void increaseFreq(int key) {
         Integer oldFreq = keyToFreq.get(key);
-        keyToFreq.put(key,oldFreq+1);
+        keyToFreq.put(key, oldFreq + 1);
 
         // 将 key 从 freq 对应的列表中删除
         freqToKeys.get(oldFreq).remove(key);
 
         // 将 key 加入 freq + 1 对应的列表中
-        freqToKeys.putIfAbsent(oldFreq+1,new LinkedHashSet<>());
-        freqToKeys.get(oldFreq+1).add(key);
+        freqToKeys.putIfAbsent(oldFreq + 1, new LinkedHashSet<>());
+        freqToKeys.get(oldFreq + 1).add(key);
 
         // 如果 freq 对应的列表空了，移除这个 freq
         if (freqToKeys.get(oldFreq).isEmpty()) {
