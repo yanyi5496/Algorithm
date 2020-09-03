@@ -11,7 +11,7 @@ import java.util.Map;
 public class Fib {
 
     public static void main(String[] args) {
-        int N = 47;
+        int N = 45;
 
         long start = System.currentTimeMillis();
         long fib = fib(N);
