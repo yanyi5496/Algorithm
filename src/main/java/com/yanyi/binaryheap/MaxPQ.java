@@ -105,8 +105,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
     /**
      * 元素是否小于
      *
-     * @param i
-     * @param j
+     * @param i 索引
+     * @param j 索引
      * @return
      */
     private boolean less(int i, int j) {
@@ -114,7 +114,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     /**
-     * 当前节点的父节点
+     * 当前节点的父节点索引
      *
      * @param root
      * @return
@@ -124,7 +124,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     /**
-     * 当前节点的左孩子
+     * 当前节点的左孩子索引
      *
      * @param root
      * @return
@@ -134,7 +134,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     /**
-     * 当前节点的右孩子
+     * 当前节点的右孩子索引
      *
      * @param root
      * @return
