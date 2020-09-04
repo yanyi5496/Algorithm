@@ -13,7 +13,7 @@ public class CoinChangeRecursion {
     int res = Integer.MAX_VALUE;
 
     public static void main(String[] args) {
-        int[] coins = new int[]{1,3,5,6,7,8,9,10,11,12};
+        int[] coins = new int[]{1,3,5};
         int amount = 40;
         long start = System.currentTimeMillis();
         int recursive = new CoinChangeRecursion().recursive(coins, amount);
