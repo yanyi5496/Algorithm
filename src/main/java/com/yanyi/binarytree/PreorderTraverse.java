@@ -17,7 +17,7 @@ public class PreorderTraverse {
         String data = "1,2,#,4,#,#,3,#,#,";
         PreorderTraverse serialize = new PreorderTraverse();
         TreeNode treeNode = serialize.deSerialize(data);
-        System.out.println("treeNode = " + treeNode);
+        TreeOperation.show(treeNode);
 
         String s = serialize.serialize(treeNode);
         System.out.println("s = " + s);
@@ -28,7 +28,7 @@ public class PreorderTraverse {
      *
      * @param node 父节点
      */
-    String serialize(TreeNode node) {
+    public String serialize(TreeNode node) {
         StringBuilder sb = new StringBuilder();
         traverse(node, sb);
         return sb.toString();
@@ -60,7 +60,7 @@ public class PreorderTraverse {
      * @param data
      * @return
      */
-    TreeNode deSerialize(String data) {
+    public TreeNode deSerialize(String data) {
         LinkedList<String> nodes = new LinkedList();
         String[] split = data.split(SEP);
         Collections.addAll(nodes,split);

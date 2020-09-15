@@ -6,9 +6,9 @@ package com.yanyi.binarytree;
  * @url https://mp.weixin.qq.com/s/DVX2A1ha4xSecEXLxW_UsA
  */
 public class TreeNode {
-    Integer val;
-    TreeNode left;
-    TreeNode right;
+    public Integer val;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode() {
     }
@@ -19,10 +19,8 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return "TreeNode{" +
-                "val=" + val +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
+        return val+"\n"
+                +left.val+ " " + right.val;
     }
+
 }

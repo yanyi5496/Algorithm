@@ -11,7 +11,7 @@ import java.util.Map;
 public class Fib {
 
     public static void main(String[] args) {
-        int N = 45;
+        int N = 50;
 
         long start = System.currentTimeMillis();
         long fib = fib(N);
@@ -106,7 +106,7 @@ public class Fib {
 
     /**
      * dp的迭代解法 自底向上求解,依次计算出每一项的值
-     * 结果态只和上两个状态有关，只存储上两个状态即可 状态压缩
+     * 结果只和上两个状态有关，只存储上两个状态即可 状态压缩
      * 在上一个解法的基础上，将空间复杂度降到了O(1)
      *
      * @param n
