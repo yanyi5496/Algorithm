@@ -7,6 +7,7 @@ import com.yanyi.binarytree.TreeOperation;
 /**
  * 二叉树展开为链表
  * LeetCode-114
+ *
  * @author chenqiang
  * @date 2020-09-16
  */
@@ -21,7 +22,7 @@ public class FlattenBinaryTree {
 
     }
 
-    public static void flatten(TreeNode root) {
+    private static void flatten(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -43,8 +44,6 @@ public class FlattenBinaryTree {
             root = root.right;
         }
         root.right = right;
-
-
 
     }
 }

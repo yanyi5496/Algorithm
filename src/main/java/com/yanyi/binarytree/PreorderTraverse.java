@@ -72,7 +72,7 @@ public class PreorderTraverse {
      * @param nodes
      * @return
      */
-    TreeNode deTraverse(LinkedList<String> nodes) {
+    private TreeNode deTraverse(LinkedList<String> nodes) {
         if (nodes.isEmpty()) {
             return null;
         }
