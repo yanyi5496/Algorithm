@@ -304,12 +304,12 @@ class LRUCache:
 
     def get(self, key: int) -> int:
         if key in self.cache:
-            node = self.cache[key]
+            root = self.cache[key]
             # 从链表中删除该节点
-            self.remove_node_from_list(node)
+            self.remove_node_from_list(root)
             # 把该节点添加到链表头部
-            self.push_node_to_front(node)
-            return node.val
+            self.push_node_to_front(root)
+            return root.val
         else:
             return -1
 
@@ -319,9 +319,9 @@ class LRUCache:
             self.remove_node_from_list(self.cache[key])
 
         # 把该节点添加到链表头部
-        node = ListNode(key, value)
-        self.cache[key] = node
-        self.push_node_to_front(node)
+        root = ListNode(key, value)
+        self.cache[key] = root
+        self.push_node_to_front(root)
 
         # 如果链表超过最大容量，删除链表尾部节点
         if len(self.cache) > self.cap:
@@ -330,19 +330,19 @@ class LRUCache:
             self.cache.pop(last_node.key)
 
     # 从链表中删除节点
-    def remove_node_from_list(self, node: "ListNode") -> None:
-        prev = node.prev
-        nxt = node.next
+    def remove_node_from_list(self, root: "ListNode") -> None:
+        prev = root.prev
+        nxt = root.next
         prev.next = nxt
         nxt.prev = prev
 
     # 添加节点到链表头部
-    def push_node_to_front(self, node: "ListNode") -> None:
+    def push_node_to_front(self, root: "ListNode") -> None:
         nxt = self.sentinel.next
-        self.sentinel.next = node
-        node.next = nxt
-        node.prev = self.sentinel
-        nxt.prev = node
+        self.sentinel.next = root
+        root.next = nxt
+        root.prev = self.sentinel
+        nxt.prev = root
 ```
 
 [上一篇：二叉堆详解实现优先级队列](../数据结构系列/二叉堆详解实现优先级队列.md)

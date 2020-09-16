@@ -18,6 +18,7 @@ import com.yanyi.binarytree.TreeOperation;
  *  / \   / \
  * 9   6 3   1
  *
+ * LeetCode-226
  * 解题思路：二叉树上的每个节点的左右子节点进行交换，最后就能翻转成功
  * @author chenqiang
  * @date 2020-09-15
@@ -34,21 +35,21 @@ public class FlipBinaryTree {
     }
 
     /**
-     *
-     * @param node
+     * 翻转方法
+     * @param root
      * @return
      */
-    public static TreeNode flip(TreeNode node) {
-        if (node == null) {
+    public static TreeNode flip(TreeNode root) {
+        if (root == null) {
             return null;
         }
         //交换左右节点值
-        TreeNode temp = node.left;
-        node.left = node.right;
-        node.right = temp;
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
         //左右节点的子节点继续翻转
-        flip(node.left);
-        flip(node.right);
-        return node;
+        flip(root.left);
+        flip(root.right);
+        return root;
     }
 }

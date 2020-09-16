@@ -24,23 +24,23 @@ public class DoubleList {
     /**
      * 向链表尾添加新节点 尾插
      *
-     * @param node 新节点
+     * @param root 新节点
      */
-    public void addLast(Node node) {
-        node.prev = tail.prev;  //新节点的前驱指向虚尾节点的前驱（即真实最后一个值地址）
-        node.next = tail;  //新节点的后继指向虚尾节点
-        tail.prev.next = node;  //真最后节点的后继指向新节点
-        tail.prev = node; //虚尾节点的前驱指向新节点 虚尾节点的后继指向的头节点
+    public void addLast(Node root) {
+        root.prev = tail.prev;  //新节点的前驱指向虚尾节点的前驱（即真实最后一个值地址）
+        root.next = tail;  //新节点的后继指向虚尾节点
+        tail.prev.next = root;  //真最后节点的后继指向新节点
+        tail.prev = root; //虚尾节点的前驱指向新节点 虚尾节点的后继指向的头节点
         size++;
     }
 
     /**
      * 删除给定的节点 节点存在
-     * @param node 节点
+     * @param root 节点
      */
-    public void remove(Node node) {
-        node.prev.next = node.next;  //需删除节点的前驱（即待删除节点的上一个节点）的后继指向待删除节点的下一个节点
-        node.next.prev = node.prev;  //待删除节点的后继（待删除节点的下一个节点）的前驱指向待删除节点的上一个节点
+    public void remove(Node root) {
+        root.prev.next = root.next;  //需删除节点的前驱（即待删除节点的上一个节点）的后继指向待删除节点的下一个节点
+        root.next.prev = root.prev;  //待删除节点的后继（待删除节点的下一个节点）的前驱指向待删除节点的上一个节点
         size--;
     }
 

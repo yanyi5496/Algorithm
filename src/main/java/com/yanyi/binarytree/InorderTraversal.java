@@ -20,26 +20,26 @@ public class InorderTraversal {
     /**
      * 序列化
      *
-     * @param node
+     * @param root
      */
-    String serialize(TreeNode node) {
+    String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
-        traverse(node, sb);
+        traverse(root, sb);
         return sb.toString();
     }
 
     /**
      * 中序遍历逻辑
-     * @param node
+     * @param root
      * @param sb
      */
-    void traverse(TreeNode node, StringBuilder sb) {
-        if (node == null) {
+    void traverse(TreeNode root, StringBuilder sb) {
+        if (root == null) {
             sb.append(NULL).append(SEP);
             return;
         }
-        traverse(node.left, sb);
-        sb.append(node.val).append(SEP);
-        traverse(node.right, sb);
+        traverse(root.left, sb);
+        sb.append(root.val).append(SEP);
+        traverse(root.right, sb);
     }
 }

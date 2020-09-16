@@ -7,7 +7,7 @@ package com.yanyi.lru;
 public class Node {
     public int key;
     public int val;
-    public Node node;
+    public Node root;
     public Node next;
     public Node prev;
 

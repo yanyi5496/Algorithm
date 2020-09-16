@@ -30,11 +30,11 @@ public class LRUCache {
      * @param key
      */
     private void makeRecently(int key) {
-        Node node = map.get(key);
+        Node root = map.get(key);
         //从链表中删除
-        cache.remove(node);
+        cache.remove(root);
         //插入到队尾
-        cache.addLast(node);
+        cache.addLast(root);
     }
 
 
@@ -44,9 +44,9 @@ public class LRUCache {
      * @param val
      */
     private void addRecently(int key, int val) {
-        Node node = new Node(key,val);
-        map.put(key,node);
-        cache.addLast(node);
+        Node root = new Node(key,val);
+        map.put(key,root);
+        cache.addLast(root);
     }
 
     /**
@@ -54,8 +54,8 @@ public class LRUCache {
      * @param key
      */
     private void deleteKey(int key) {
-        Node node = map.get(key);
-        cache.remove(node);
+        Node root = map.get(key);
+        cache.remove(root);
         map.remove(key);
     }
 
@@ -65,8 +65,8 @@ public class LRUCache {
      */
     private void removeLeastRecently() {
         //头部即是最久未使用节点
-        Node node = cache.remodeFirst();
-        int key = node.key;
+        Node root = cache.remodeFirst();
+        int key = root.key;
         map.remove(key);
     }
 

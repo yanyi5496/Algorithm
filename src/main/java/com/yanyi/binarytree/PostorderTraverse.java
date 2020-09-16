@@ -18,19 +18,19 @@ public class PostorderTraverse {
         PostorderTraverse serialize = new PostorderTraverse();
         String s = serialize.serialize(treeNode);
         System.out.println("s = " + s);
-        TreeNode node = serialize.deSeriilize(s);
-        System.out.println("node = " + node);
+        TreeNode root = serialize.deSeriilize(s);
+        System.out.println("root = " + root);
     }
 
     /**
      * 序列化
      *
-     * @param node
+     * @param root
      * @return
      */
-    String serialize(TreeNode node) {
+    String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
-        traverse(sb, node);
+        traverse(sb, root);
         return sb.toString();
     }
 
@@ -38,18 +38,18 @@ public class PostorderTraverse {
      * 后序遍历逻辑
      *
      * @param sb
-     * @param node
+     * @param root
      */
-    void traverse(StringBuilder sb, TreeNode node) {
-        if (node == null) {
+    void traverse(StringBuilder sb, TreeNode root) {
+        if (root == null) {
             sb.append(NULL).append(SEP);
             return;
         }
 
-        traverse(sb, node.left);
-        traverse(sb, node.right);
+        traverse(sb, root.left);
+        traverse(sb, root.right);
 
-        sb.append(node.val).append(SEP);
+        sb.append(root.val).append(SEP);
     }
 
 

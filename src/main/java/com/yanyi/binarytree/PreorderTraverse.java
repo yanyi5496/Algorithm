@@ -26,30 +26,30 @@ public class PreorderTraverse {
     /**
      * 前序遍历
      *
-     * @param node 父节点
+     * @param root 父节点
      */
-    public String serialize(TreeNode node) {
+    public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
-        traverse(node, sb);
+        traverse(root, sb);
         return sb.toString();
     }
 
     /**
      * 前序遍历执行方法
      *
-     * @param node
+     * @param root
      * @param sb
      */
-    void traverse(TreeNode node, StringBuilder sb) {
-        if (node == null) {
+    void traverse(TreeNode root, StringBuilder sb) {
+        if (root == null) {
             sb.append(NULL).append(SEP);
             return;
         }
         // 输出根节点的值 前序遍历
-        sb.append(node.val).append(SEP);
+        sb.append(root.val).append(SEP);
         //依次递归左孩子和右孩子
-        traverse(node.left, sb);
-        traverse(node.right, sb);
+        traverse(root.left, sb);
+        traverse(root.right, sb);
     }
 
 

@@ -9,18 +9,13 @@ public class TreeNode {
     public Integer val;
     public TreeNode left;
     public TreeNode right;
+    public TreeNode next;
 
     public TreeNode() {
     }
 
     public TreeNode(int val) {
         this.val = val;
-    }
-
-    @Override
-    public String toString() {
-        return val+"\n"
-                +left.val+ " " + right.val;
     }
 
 }

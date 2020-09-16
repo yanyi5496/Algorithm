@@ -17,15 +17,15 @@ public class LevelorderTraversal {
 
     /**
      * 层级遍历 从根节点开始，按左右子树顺序放入队列中，然后逐层遍历。
-     * @param node
+     * @param root
      */
-    static void traverse(TreeNode node) {
-        if (node == null) {
+    static void traverse(TreeNode root) {
+        if (root == null) {
             return;
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(node);
+        queue.offer(root);
 
         while (!queue.isEmpty()) {
             TreeNode current = queue.poll();
