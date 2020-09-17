@@ -4,7 +4,7 @@ package com.yanyi.code.link;
  * @author chenqiang
  * @description
  */
-public class Test1 {
+public class BinarySearch {
 
 
     // 1 3 4 8 10 12 15
