@@ -19,7 +19,7 @@ public class Code_295 {
         high = new PriorityQueue<>(Comparator.comparingInt(a -> a));
     }
 
-    public void addNum(int num) {
+    private void addNum(int num) {
         if (low.size() == high.size()) {
             // 优先放入到high中 要保证两个栈的元素树之差不能大于1 在优先放到high的情况下，只会有相等和high大1
             //值先放入low中
@@ -36,9 +36,9 @@ public class Code_295 {
         }
     }
 
-    public double findMedian() {
+    private double findMedian() {
         if (low.size() == high.size()) {
-            //元素数量一样，偶数个，去均值
+            //元素数量一样，偶数个，取均值
             return (low.peek() + high.peek())/2.0;
         } else {
             //元素数量不一样，由于优先向high中放入，所以直接去high中栈顶元素

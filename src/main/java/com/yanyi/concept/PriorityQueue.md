@@ -1,3 +1,4 @@
+## 优先级队列
 当应该基于优先级处理对象时，将使用PriorityQueue。众所周知，[队列](https://www.geeksforgeeks.org/queue-interface-java/)遵循先进先出算法，但是有时需要根据优先级来处理队列的元素，这就是PriorityQueue起作用的时候。PriorityQueue基于优先级堆。优先级队列的元素根据自然顺序进行排序，也可以根据队列构造时使用的比较器进行排序，具体取决于所使用的构造函数。 
 
 ![队列队列优先级Java队列](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200903183026/Queue-Deque-PriorityQueue-In-Java.png)

@@ -7,6 +7,14 @@ package com.yanyi.code.binarytree;
  */
 // TreeOperation.java
 public class TreeOperation {
+
+
+    public static void main(String[] args) {
+        String data = "10,5,15,3,7,#,18";
+        PreorderTraverse serialize = new PreorderTraverse();
+        TreeNode treeNode = serialize.deSerialize(data);
+        TreeOperation.show(treeNode);
+    }
     /*
     树的结构示例：
               1

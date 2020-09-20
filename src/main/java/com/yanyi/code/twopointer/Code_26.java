@@ -1,12 +1,19 @@
-package com.yanyi.code;
+package com.yanyi.code.twopointer;
 
 /**
+ * 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+ * <p>
+ * 不要使用额外的数组空间，你必须在原地修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+ * <p>
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * 通过快慢指针
  *
  * @author chenqiang
  * @date 2020-09-17
  */
-public class Code_28 {
+public class Code_26 {
 
     public static int removeDuplicates(int[] nums) {
         if (nums.length == 0) {
@@ -28,7 +35,7 @@ public class Code_28 {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 5, 5, 6, 7 ,7 ,9 ,10};
+        int[] nums = new int[]{1, 5, 5, 6, 7, 7, 9, 10};
         int i = removeDuplicates(nums);
         System.out.println("i = " + i);
     }
