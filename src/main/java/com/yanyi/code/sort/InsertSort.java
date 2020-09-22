@@ -33,6 +33,7 @@ public class InsertSort {
      */
     private static void sort(int[] array) {
         int current;
+        //第0位默认有序，直接从第1位开始遍历
         for (int i = 1; i < array.length; i++) {
             //当前值
             current = array[i];
