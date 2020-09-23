@@ -6,9 +6,7 @@ package com.yanyi.code.calback;
  */
 public class Test {
     public static void main(String[] args) {
-        MasterClass master = new MasterClass();
-        SalveClass salve = new SalveClass();
-        master.salve = salve;
+        MasterClass master = new MasterClass(new SalveClass());
         master.askDoSomeThing();
     }
 }
