@@ -19,15 +19,16 @@ public class DynamicProxy {
     }
 
 
-    public static Object getProxy(final CalculatorImpl target) throws Exception {
-        Class<?> proxyClass = Proxy.getProxyClass(Calculator.class.getClassLoader(), Calculator.class);
+    //得到代理类
+    public static Object getProxy(final Object target) throws Exception {
+        Class<?> proxyClass = Proxy.getProxyClass(target.getClass().getClassLoader(), target.getClass().getInterfaces());
         //通过参数列表得到有参构造器 public com.sun.proxy.$Proxy0(java.lang.reflect.InvocationHandler)
         Constructor<?> constructor = proxyClass.getConstructor(InvocationHandler.class);
         //constructor.newInstance()需要传入一个InvocationHandler对象，这里采用匿名对象的方式，invoke()方法不做具体实现，直接返回null
         return constructor.newInstance((InvocationHandler) (proxy, method, args1) -> {
             Object result = method.invoke(target, args1);
             System.out.println("result = " + result);
-            return proxy;
+            return result;
         });
 
     }
