@@ -6,11 +6,9 @@ package com.yanyi.code.link;
  */
 public class BinarySearch {
 
-
-    // 1 3 4 8 10 12 15
     public static void main(String[] args) {
         int[] nums = {1,5,6,9,10,12,19,21};
-        int search = binarySearch(nums, 13);
+        int search = binarySearch(nums, 12);
         System.out.println("search = " + search);
     }
 
@@ -19,7 +17,8 @@ public class BinarySearch {
         int left = 0;
         int right = num.length-1;
         while (left <= right) {
-            int mid = left + (right-left)/2; //防止left+right直接溢出
+            //防止left+right直接溢出
+            int mid = left + (right-left)/2;
             if (num[mid] == target) {
                 return mid;
             }else if (target > num[mid]) {

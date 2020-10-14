@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class Code_94 {
     public static void main(String[] args) {
-        String data = "3,9,#,#,20,15,#,#,7";
+        String data = "4,2,1,#,#,3,#,#,7";
         PreorderTraverse serialize = new PreorderTraverse();
         TreeNode treeNode = serialize.deSerialize(data);
         TreeOperation.show(treeNode);
@@ -42,7 +42,7 @@ public class Code_94 {
     }
 
     //中序遍历
-    private static void prorder(TreeNode node, List res) {
+    private static void prorder(TreeNode node, List<Integer> res) {
         if (node == null) {
             return;
         }

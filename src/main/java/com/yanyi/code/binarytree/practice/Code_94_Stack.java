@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * 94题 通过Stack实现
- *
+ * 94题 通过Stack(栈 先进后出FILO)实现
+ * <p>
  * 给定一个二叉树，返回它的中序遍历。
- *   直接认为树已经成功构建
- *   输入: [1,5,#,#,2,3]
- *      1
- *    /  \
- *   5    2
- *       /
- *      3
+ * 直接认为树已经成功构建
+ * 输入: [1,5,#,#,2,3]
+ * 1
+ * /  \
+ * 5    2
+ * /
+ * 3
  *
  * @author chenqiang
  * @date 2020-09-16
@@ -41,11 +41,12 @@ public class Code_94_Stack {
 
         //当前node不为空 或 栈不为空
         while (cur != null || !stack.isEmpty()) {
-            //node不为空放入栈中 继续往左节点移动放入栈中
+            //node不为空放入栈中 继续往左子树移动并放入栈中
             if (cur != null) {
                 stack.push(cur);
                 cur = cur.left;
             } else {
+                //往右子树移动
                 cur = stack.pop();
                 list.add(cur.val);
                 cur = cur.right;

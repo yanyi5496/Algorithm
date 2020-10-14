@@ -16,6 +16,7 @@ public class DynamicProxy {
     public static void main(String[] args) throws Throwable {
         Calculator proxy = (Calculator) getProxy(new CalculatorImpl());
         proxy.add(10, 11);
+        proxy.substract(15, 2);
     }
 
 
@@ -26,8 +27,10 @@ public class DynamicProxy {
         Constructor<?> constructor = proxyClass.getConstructor(InvocationHandler.class);
         //constructor.newInstance()需要传入一个InvocationHandler对象，这里采用匿名对象的方式，invoke()方法不做具体实现，直接返回null
         return constructor.newInstance((InvocationHandler) (proxy, method, args1) -> {
+            System.out.println("starting");
             Object result = method.invoke(target, args1);
             System.out.println("result = " + result);
+            System.out.println("ending");
             return result;
         });
 
@@ -41,10 +44,8 @@ public class DynamicProxy {
     public void test1() {
         Class<?> proxyClass = Proxy.getProxyClass(Calculator.class.getClassLoader(), Calculator.class);
         try {
-            Object o = proxyClass.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+            proxyClass.newInstance();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -44,7 +44,7 @@ public class Code_100 {
         }
 
         //如果父节点值相同，则比较左孩子和右孩子是否分别相同
-        if (node1.val == node2.val) {
+        if (node1.val.equals(node2.val)) {
             return isSameTree(node1.left, node2.left) && isSameTree(node1.right, node2.right);
         } else {
             return false;
