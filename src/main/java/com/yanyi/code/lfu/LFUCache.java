@@ -9,16 +9,26 @@ import java.util.LinkedHashSet;
  * @url https://mp.weixin.qq.com/s/oXv03m1J8TwtHwMJEZ1ApQ
  */
 public class LFUCache {
-    //key到val之间的映射
+    /**
+     * key到val之间的映射
+     */
     HashMap<Integer, Integer> keyToVal;
-    //key到freq(频次)之间的映射
+    /**
+     * key到freq(频次)之间的映射
+     */
     HashMap<Integer, Integer> keyToFreq;
-    //freq到keys之间的映射，同频次的key的次序
+    /**
+     * freq到keys之间的映射，同频次的key的次序
+     */
     HashMap<Integer, LinkedHashSet<Integer>> freqToKeys;
-    //最小频次
+    /**
+     * 最小频次
+     */
     private int minFreq;
-    //cache的容量
-    private int capacity;
+    /**
+     * cache的容量
+     */
+    private final int capacity;
 
     public LFUCache(int capacity) {
         this.capacity = capacity;
@@ -36,6 +46,11 @@ public class LFUCache {
         return keyToVal.get(key);
     }
 
+    /**
+     *
+     * @param key
+     * @param val
+     */
     public void put(int key, int val) {
         if (capacity <= 0) {
             return;
@@ -76,7 +91,7 @@ public class LFUCache {
     /**
      * 增加该key的访问频次
      *
-     * @param key
+     * @param key key
      */
     private void increaseFreq(int key) {
         Integer oldFreq = keyToFreq.get(key);

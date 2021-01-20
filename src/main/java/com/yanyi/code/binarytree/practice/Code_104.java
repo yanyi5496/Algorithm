@@ -53,6 +53,6 @@ public class Code_104 {
         int left = dfs(node.left) + 1;
         int right = dfs(node.right) + 1;
         //返回较大的值
-        return left > right ? left : right;
+        return Math.max(left, right);
     }
 }
