@@ -15,11 +15,24 @@ public class MyHashMap<K, V> implements MapInterface<K, V> {
     /**
      * 最大容量，如果两个构造函数都使用参数隐式指定了更高的值，则使用该容量。 必须是两个<= 1 << 30的幂。
      */
-    static final int MAXINUM_CAPACITY = 1 << 30;
+    static final int MAXIMUM_CAPACITY = 1 << 30;
     /**
      * 在构造函数中未指定时使用的负载系数
      */
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+    /**
+     * Returns a power of two size for the given target capacity.
+     */
+    static final int tableSizeFor(int cap) {
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
 
     /**
      * 基本哈希箱节点，用于大多数条目。
@@ -70,7 +83,57 @@ public class MyHashMap<K, V> implements MapInterface<K, V> {
      */
     Node<K, V>[] table;
 
+    /**
+     * 保存缓存的entrySet
+     */
     Set<Entry<K, V>> entrySet;
+
+    /**
+     * 映射数量
+     */
+    int size;
+
+    /**
+     * 负载系数
+     */
+    float loadFactor;
+
+    /**
+     * 要调整大小的下一个大小值（容量*负载系数）
+     */
+    int threshold;
+
+    /**
+     * 构造一个具有指定初始容量和负载系数的空hashmap
+     * @param initCapacity 初始容量
+     * @param loadFactor 负载系数
+     */
+    public MyHashMap(int initCapacity, float loadFactor) throws Exception {
+        if (initCapacity < 0) {
+            throw new Exception("初始容量不能小于0");
+        }
+        if (initCapacity > MAXIMUM_CAPACITY) {
+            initCapacity = MAXIMUM_CAPACITY;
+        }
+        if (loadFactor < 0 || Float.isNaN(loadFactor)) {
+            throw new Exception("负载系数错误");
+        }
+        this.loadFactor = loadFactor;
+        this.threshold = tableSizeFor(initCapacity);
+    }
+
+    /**
+     * 构造具有指定初始容量和默认负载系数的空hashmap
+     * @param initCapacity
+     * @throws Exception
+     */
+    public MyHashMap(int initCapacity) throws Exception {
+        this(initCapacity, DEFAULT_LOAD_FACTOR);
+    }
+
+    public MyHashMap() {
+        this.loadFactor = DEFAULT_LOAD_FACTOR;
+    }
 
 
 
