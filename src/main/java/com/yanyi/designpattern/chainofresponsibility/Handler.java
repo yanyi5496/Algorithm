@@ -12,8 +12,21 @@ public interface Handler<T> {
      * 需子类具体实现的方法
      * @param t
      */
-    default void handle(T t) {
+    void before(T t);
 
+    /**
+     * 需子类具体实现的方法
+     * @param t
+     */
+    void after(T t);
+
+    /**
+     * 默认执行的顺序，可重写改变执行顺序
+     * @param t
+     */
+    default void process(T t) {
+        before(t);
+        after(t);
     }
 
 }

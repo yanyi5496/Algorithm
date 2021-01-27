@@ -35,7 +35,7 @@ public class HandlerRegistry<T> {
     public void invoke(T t) {
         Set<Integer> collect = new HashSet<>(handlerMap.keySet());
         for (Integer integer : collect) {
-            handlerMap.get(integer).handle(t);
+            handlerMap.get(integer).process(t);
         }
     }
 }
