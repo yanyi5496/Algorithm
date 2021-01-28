@@ -12,6 +12,5 @@ public class Client {
                 .apply(new MyHandler1())
                 .apply(new MyHandler2())
                 .invoke(user);
-        System.out.println("user = " + user);
     }
 }

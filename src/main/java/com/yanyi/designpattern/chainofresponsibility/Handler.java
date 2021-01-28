@@ -2,6 +2,7 @@ package com.yanyi.designpattern.chainofresponsibility;
 
 /**
  * handler接口
+ * 具体的工作由子类实现该接口完成
  * @author chenqiang
  * @since 2021-01-26 16:56
  */
